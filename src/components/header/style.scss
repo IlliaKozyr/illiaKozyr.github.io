@@ -35,13 +35,13 @@
     letter-spacing: .03em;
     color: #212121;
   }
-  h1{
+  .logoH1 {
     display: flex;
     position: fixed;
     top: 0;
     width: 100%;
     height: 70px;
-    background: #212121;
+    background: #4c91c7;
     color: #fff;
     justify-content: center;
     align-items: center;
@@ -161,3 +161,12 @@
   #nav-container:focus-within #nav-content{
     transform: none;
   }
+
+  .loginAvatar {
+        text-align: center;
+  }
+
+  .nav {
+    font-size: 20px;
+  }
+    

@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import { useDropzone } from "react-dropzone";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/esm/Button";
-import { CSearchAvatar } from "../components/Avatar";
+import { CSearchAvatar } from "../components/avatars/Avatar";
 import { actionSetChatInfo } from "../actions";
 import { actionFindUsers } from "../actions";
 import { history } from "../App";
-import { CChatAvatar } from "../components/Avatar";
+import { CChatAvatar } from "../components/avatars/Avatar";
 
 const ChatPage = ({
     onChat,

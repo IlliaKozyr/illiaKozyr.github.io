@@ -5,7 +5,7 @@ import { actionFullMsgsByChat } from "../actions";
 import { store } from "../reducers/combineReducers";
 import Button from "react-bootstrap/esm/Button";
 import { backURL } from "../constants";
-import { AvatarStubHeader } from "../components/AvatarStub";
+import { AvatarStubHeader } from "../components/avatars/AvatarStub";
 import { actionSendMsg } from "../actions";
 import { useDropzone } from "react-dropzone";
 

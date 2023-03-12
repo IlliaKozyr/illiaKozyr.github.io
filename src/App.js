@@ -1,6 +1,7 @@
 import React from "react";
-import "./resetStyle.scss";
 import "./App.scss"
+import "./resetStyle.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { store } from "./reducers/combineReducers";
 import { socket } from "./helpers/socket"
 import createHistory from "history/createBrowserHistory";
@@ -17,7 +18,7 @@ import { ChangesDoneForChats } from "./pages/ChangeDoneForChat";
 import { AboutUs } from "./pages/AboutUs";
 import { Redirect } from "react-router-dom";
 import { CChatMsgs } from "./pages/ChatMsgsPage";
-import { CChatsAside } from "./pages/ChatsAside";
+import { CChatsAside } from "./pages/chatsAside";
 import { CChatEditing } from "./pages/ChatEditing";
 
 export const history = createHistory();
@@ -47,7 +48,6 @@ const AuthSwitch = ({ token }) => {
             <Route path="/aboutus" component={AboutUs} />
             <div className="mainContainer">
                 <Route path="/main" component={CChatsAside} />
-
                 <Route path="/main/:_id" component={CChatMsgs} exact/>
             </div>
             <Redirect to={token === undefined ? "/login" : "/main"} />

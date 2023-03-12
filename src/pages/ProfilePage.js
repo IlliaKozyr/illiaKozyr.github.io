@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/esm/Button";
 import { useDropzone } from "react-dropzone";
 import { Link } from "react-router-dom";
-import { CMyAvatar } from "../components/Avatar";
+import { CMyAvatar } from "../components/avatars/Avatar";
 import { actionSetUserInfo } from "../actions";
 import { connect } from "react-redux";
 

@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.scss"
 
 // const r = () => Math.floor(Math.random() * 256);
 // const g = () => Math.floor(Math.random() * 256);

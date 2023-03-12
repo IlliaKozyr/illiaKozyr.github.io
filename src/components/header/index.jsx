@@ -1,11 +1,17 @@
 import "./style.scss";
 import { Link } from "react-router-dom";
 import { CLogoutBtn } from "../LogoutBtn";
+import { Nav } from "react-bootstrap";
+import { CMyAvatar } from "../avatars/Avatar";
+import { CNickName } from "../../components/NickName";
+import { Offcanvas } from "react-bootstrap";
 
 export const Header = () => {
     return (
         <>
-            <h1>FAKOGRAM</h1>
+            <Link to="/main">
+                <h1 className="logoH1">FAKOGRAM</h1>
+            </Link>
 
             <div id="nav-container">
                 <div class="bg"></div>
@@ -16,12 +22,20 @@ export const Header = () => {
                 </div>
                 <div id="nav-content" tabindex="0">
                     <ul>
-                        <Link className="nav" to="/profile">
-                            Profile
-                        </Link>
-                        <Link className="nav" to="aboutus">
-                            About Us
-                        </Link>
+                        <Offcanvas.Body>
+                            <div className="loginAvatar">
+                                <CMyAvatar />
+                                <CNickName />
+                            </div>
+                            <div className="">
+                                <Link className="nav" to="/profile">
+                                    Profile
+                                </Link>
+                                <Link className="nav" to="/aboutus">
+                                    About Us
+                                </Link>
+                            </div>
+                        </Offcanvas.Body>
                         <CLogoutBtn />
                     </ul>
                 </div>

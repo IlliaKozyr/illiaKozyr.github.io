@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import "./style.scss"
 import { connect } from "react-redux";
-import { actionFullChatList } from "../actions";
-import { backURL } from "../constants";
+import { actionFullChatList } from "../../actions";
+import { backURL } from "../../constants";
 import { Link } from "react-router-dom";
-import { AvatarStub } from "../components/AvatarStub";
+import { AvatarStub } from "../../components/avatars/AvatarStub";
 
 const ChatsAside = ({ chats = [], auth, ownerChats }) => {
     const [chatBlock] = useState(0);

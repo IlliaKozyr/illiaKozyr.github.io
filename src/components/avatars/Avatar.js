@@ -1,6 +1,7 @@
 import React from "react";
+import "./style.scss"
 import { connect } from "react-redux";
-import { backURL } from "../constants";
+import { backURL } from "../../constants";
 
 function getUrl(obj) {
     if (obj.avatar?.url) {
