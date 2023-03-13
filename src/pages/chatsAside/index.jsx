@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./style.scss"
+import "./style.scss";
 import { connect } from "react-redux";
 import { actionFullChatList } from "../../actions";
 import { backURL } from "../../constants";
@@ -18,11 +18,9 @@ const ChatsAside = ({ chats = [], auth, ownerChats }) => {
         return function cleanUp() {};
     }, [chatBlock]);
 
-
     return (
         <>
             <div className="chatsContainer" key={Math.random}>
-                <div>
                 {chats.map((chat, _id) => (
                     <>
                         <Link
@@ -76,7 +74,6 @@ const ChatsAside = ({ chats = [], auth, ownerChats }) => {
                 <Link className="newChatButton" to="/newchat" key={Math.random}>
                     +
                 </Link>
-                </div>
             </div>
         </>
     );

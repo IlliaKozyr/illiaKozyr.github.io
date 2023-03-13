@@ -1,7 +1,6 @@
 import "./style.scss";
 import { Link } from "react-router-dom";
 import { CLogoutBtn } from "../LogoutBtn";
-import { Nav } from "react-bootstrap";
 import { CMyAvatar } from "../avatars/Avatar";
 import { CNickName } from "../../components/NickName";
 import { Offcanvas } from "react-bootstrap";

@@ -4,7 +4,7 @@ import "./resetStyle.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { store } from "./reducers/combineReducers";
 import { socket } from "./helpers/socket"
-import createHistory from "history/createBrowserHistory";
+import {createBrowserHistory} from "history";
 import { Provider, connect } from "react-redux";
 import { Router, Route, Switch } from "react-router-dom";
 import { CLogin } from "./pages/loginPage";
@@ -21,7 +21,7 @@ import { CChatMsgs } from "./pages/ChatMsgsPage";
 import { CChatsAside } from "./pages/chatsAside";
 import { CChatEditing } from "./pages/ChatEditing";
 
-export const history = createHistory();
+export const history = createBrowserHistory();
 
 const AuthSwitch = ({ token }) => {
 
@@ -64,7 +64,7 @@ function App() {
         <>
             <Router history={history}>
                 <Provider store={store}>
-                    <div className="mainContainer">
+                    <div className="main">
                         <CAuthSwitch />
                     </div>
                 </Provider>
