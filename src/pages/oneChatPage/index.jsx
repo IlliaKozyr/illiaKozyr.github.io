@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
+import "./style.scss";
 import { connect } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { actionFullMsgsByChat } from "../actions";
-import { store } from "../reducers/combineReducers";
+import { actionFullMsgsByChat } from "../../actions";
+import { store } from "../../reducers/combineReducers";
 import Button from "react-bootstrap/esm/Button";
-import { backURL } from "../constants";
-import { AvatarStubHeader } from "../components/avatars/AvatarStub";
-import { actionSendMsg } from "../actions";
+import { backURL } from "../../constants";
+import { AvatarStubHeader } from "../../components/avatars/AvatarStub";
+import { actionSendMsg } from "../../actions";
 import { useDropzone } from "react-dropzone";
+import leftArrow from "./images/leftArrow.png";
 
 const ChatMsgs = ({
     chatMsgs = [],
@@ -43,7 +45,7 @@ const ChatMsgs = ({
 
     let { _id } = useParams();
 
-    useEffect(() => setFiles([]) , [getChat[_id]])
+    useEffect(() => setFiles([]), [getChat[_id]]);
 
     useEffect(() => {
         chatMsgs(_id, msgsBlock, msgsCount);
@@ -51,7 +53,10 @@ const ChatMsgs = ({
 
     const onDelFiles = (i) => {
         setFiles(
-            files.filter((el, index) => files[index].lastModified !== files[i].lastModified)
+            files.filter(
+                (el, index) =>
+                    files[index].lastModified !== files[i].lastModified
+            )
         );
     };
 
@@ -61,9 +66,19 @@ const ChatMsgs = ({
     const oneChatMsgs = getChat[_id]?.messages;
     return (
         <>
-            <div className="chatBlock">
-                <Link to={"/chatediting/" + getChat[_id]?._id}>
+            <div className="chatBlock overflow-block">
+                <Link
+                    to={"/chatediting/" + getChat[_id]?._id}
+                    className="chatSettingLink"
+                >
                     <div className="displayFixed">
+                        <Link to="/main">
+                            <img
+                                src={leftArrow}
+                                alt="back arrow"
+                                className="backArrow"
+                            />
+                        </Link>
                         {getChat[_id]?.avatar?.url ? (
                             <img
                                 className="forChatHeader"
@@ -79,8 +94,10 @@ const ChatMsgs = ({
                                 }
                             />
                         )}
-                        <h5>{getChat[_id]?.title}</h5>
-                        <h6>Members: {getChat[_id]?.members.length}</h6>
+                        <div className="chatTitleMembersBlock">
+                            <h5>{getChat[_id]?.title}</h5>
+                            <h6>Members: {getChat[_id]?.members.length}</h6>
+                        </div>
                     </div>
                 </Link>
 
@@ -113,7 +130,7 @@ const ChatMsgs = ({
                                                 }
                                                 className="smallForChat1"
                                                 key={Math.random()}
-                                                alt='avatar'
+                                                alt="avatar"
                                             />
                                         )}
 
@@ -131,7 +148,7 @@ const ChatMsgs = ({
                                             className="msgMedia"
                                             src={backURL + oneMsg.url}
                                             key={Math.random()}
-                                            alt='avatar'
+                                            alt="avatar"
                                         />
                                     ))}
                                     <li key={Math.random}>{msg?.text}</li>
@@ -145,18 +162,24 @@ const ChatMsgs = ({
                     {oneChatMsgs === getChat[_id] ? (
                         <></>
                     ) : (
-                        <div>
+                        <div className="sandAMessage">
                             <div className="preloaderContainer">
                                 {files.map((file, i) => (
                                     <div className="preloaderBlock">
-                                        <img src={file?.url} className="preload" key={file.lastModified} alt='avatar'/>
-                                        <button onClick={() => onDelFiles(i)} key={i}>
+                                        <img
+                                            src={file?.url}
+                                            className="preload"
+                                            key={file.lastModified}
+                                            alt="avatar"
+                                        />
+                                        <button
+                                            onClick={() => onDelFiles(i)}
+                                            key={i}
+                                        >
                                             x
                                         </button>
                                     </div>
-                                    
-                                    
-                                ))}  
+                                ))}
                             </div>
 
                             <div className="sendMsgBlock">
@@ -171,10 +194,11 @@ const ChatMsgs = ({
                                         <img
                                             src="https://img.icons8.com/ios-filled/344/folder-invoices--v2.png"
                                             className="sandFile"
-                                            alt='avatar'
+                                            alt="avatar"
                                         />
                                     </div>
-                                    <textarea
+                                    <input
+                                        type="text"
                                         name="inputName"
                                         placeholder="Write a message..."
                                         rows="2"
@@ -185,20 +209,21 @@ const ChatMsgs = ({
                                     />
                                 </div>
 
-                                <Button
+                                {/* <Button
                                     onClick={() => {
                                         sendMsg(
                                             getChat[_id]?._id,
                                             text,
                                             "media",
-                                            files
+                                            files,
+                                            "1"
                                         );
                                         setText("");
                                         setFiles([]);
                                     }}
                                 >
                                     Send a message
-                                </Button>
+                                </Button> */}
                             </div>
                         </div>
                     )}

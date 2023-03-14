@@ -7,7 +7,6 @@ import { chatsReducer } from "./chatReducers";
 import { promiseReducer } from "./promiseReducer";
 import { actionPromise } from "./promiseReducer";
 
-
 export const actionUserFindOne = (userId, name = "findUserOne") =>
     actionPromise(
         name,

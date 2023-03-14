@@ -17,7 +17,7 @@ import { ChangesDone } from "./pages/ChangesDonePage";
 import { ChangesDoneForChats } from "./pages/ChangeDoneForChat";
 import { AboutUs } from "./pages/AboutUs";
 import { Redirect } from "react-router-dom";
-import { CChatMsgs } from "./pages/ChatMsgsPage";
+import { CChatMsgs } from "./pages/oneChatPage";
 import { CChatsAside } from "./pages/chatsAside";
 import { CChatEditing } from "./pages/ChatEditing";
 
@@ -47,7 +47,7 @@ const AuthSwitch = ({ token }) => {
             <Route path="/chatediting/:_id" component={CChatEditing} />
             <Route path="/aboutus" component={AboutUs} />
             <div className="mainContainer">
-                <Route path="/main" component={CChatsAside} />
+                <Route path="/main" component={CChatsAside}/>
                 <Route path="/main/:_id" component={CChatMsgs} exact/>
             </div>
             <Redirect to={token === undefined ? "/login" : "/main"} />

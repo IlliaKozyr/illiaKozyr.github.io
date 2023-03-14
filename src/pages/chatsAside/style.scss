@@ -1,2 +1,120 @@
 
 
+p {
+    margin: 0;
+}
+
+.chatsContainer {
+    background-color: white;
+    overflow: auto;
+}
+
+.newChatContainer {
+    padding-top: 50px;
+}
+
+.chatsList {
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px;
+    overflow: auto;
+}
+.chatsList:hover {
+    background-color: lightgray;
+}
+
+.chatsList h1 {
+    font-size: 1.5rem;
+}
+
+.chatsCard {
+    display: flex;
+    padding: 5px 0;
+}
+
+.smallForChat {
+    width: 60px;
+    height: 60px;
+    margin: 0 10px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.stubAvatar {
+    width: 60px;
+    height: 60px;
+    margin: 0 10px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid #4c91c7;
+}
+
+.stubAvatarHeader {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.stubAvatarHeader p {
+    color: white;
+    margin: 0;
+    padding-top: 4px;
+}
+
+.stubAvatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatAvatarText {
+    margin: 0;
+    color: #4c91c7;
+    font-size: 25px;
+}
+
+.chatLi ul {
+    margin-left: 10px;
+}
+
+.chatLi h5 {
+    color: black;
+}
+
+.chatTitle {
+    color: black;
+}
+
+.chatSearch {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.inputChatsSearch {
+    margin: 10px 0px 0px 10px;
+    padding: 5px 5px 5px 10px;
+    width: 85%;
+    border-radius: 15px;
+    border-color: #4c91c7;
+}
+
+.newChatButton {
+    padding: 3px;
+}
+
+.newChatButton:hover {
+    background-color: lightgray;
+    border-radius: 15px;
+}
+
+.overflow-block {
+    // overflow: scroll;
+    height: 92.8vh;
+}

@@ -13,11 +13,11 @@ export const Header = () => {
             </Link>
 
             <div id="nav-container">
-                <div class="bg"></div>
-                <div class="button" tabindex="0">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                <div className="bg"></div>
+                <div className="button" tabindex="0">
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
                 </div>
                 <div id="nav-content" tabindex="0">
                     <ul>
@@ -33,9 +33,10 @@ export const Header = () => {
                                 <Link className="nav" to="/aboutus">
                                     About Us
                                 </Link>
+                                <CLogoutBtn />
                             </div>
                         </Offcanvas.Body>
-                        <CLogoutBtn />
+                        
                     </ul>
                 </div>
             </div>

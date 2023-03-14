@@ -5,6 +5,9 @@ import { actionFullChatList } from "../../actions";
 import { backURL } from "../../constants";
 import { Link } from "react-router-dom";
 import { AvatarStub } from "../../components/avatars/AvatarStub";
+import newChat from "./images/newChat.png";
+
+
 
 const ChatsAside = ({ chats = [], auth, ownerChats }) => {
     const [chatBlock] = useState(0);
@@ -14,13 +17,25 @@ const ChatsAside = ({ chats = [], auth, ownerChats }) => {
         if (userId) {
             ownerChats(userId);
         }
-
         return function cleanUp() {};
-    }, [chatBlock]);
+    }, [chatBlock]);    
+
+    
 
     return (
         <>
             <div className="chatsContainer" key={Math.random}>
+                <div className="chatSearch">
+                    <input placeholder="Chats search..." className="inputChatsSearch" onChange={({ target: { value } }) => (value)}></input>
+                    <Link
+                        className="newChatButton"
+                        to="/newchat"
+                        key={Math.random}
+                    >
+                        <img src={newChat} alt="new chat button"></img>
+                    </Link>
+                </div>
+                <div className="overflow-block">
                 {chats.map((chat, _id) => (
                     <>
                         <Link
@@ -71,9 +86,8 @@ const ChatsAside = ({ chats = [], auth, ownerChats }) => {
                         </Link>
                     </>
                 ))}
-                <Link className="newChatButton" to="/newchat" key={Math.random}>
-                    +
-                </Link>
+                </div>
+               
             </div>
         </>
     );
@@ -83,6 +97,7 @@ export const CChatsAside = connect(
     (state) => ({
         auth: state.auth,
         chats: Object.values(state.chats).filter((el) => el._id),
+        fillteredChats: Object.values(state.chats).filter((el) => el._id),
     }),
     { ownerChats: actionFullChatList }
 )(ChatsAside);
