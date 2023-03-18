@@ -5,6 +5,7 @@ import { actionMsgOne } from "../reducers/chatReducers";
 import { api } from "../constants";
 import { backURL } from "../constants";
 import { io } from "socket.io-client"
+const apiUrl = 'https://cors-anywhere.herokuapp.com/http://chat.ed.asmer.org.ua/socket.io/?EIO=4&transport=polling&t=ORsl2pq';
 
 export const socket = io(backURL);
 
