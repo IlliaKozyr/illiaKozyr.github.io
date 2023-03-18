@@ -6,11 +6,12 @@ import {
 } from "../reducers/chatReducers";
 import { actionPromise } from "../reducers/promiseReducer";
 import { actionUploadFile } from "./mediaActions";
+import { fetchGraphQL } from "../constants";
 
 export const actionGetMsgsByChat = (chatId, skipCount = 0, limitCount = 50) =>
     actionPromise(
         "chatMsgs",
-        gql(
+        fetchGraphQL(
             `query chatMsgs($q: String) {
       MessageFind (query: $q){
          _id
@@ -86,7 +87,7 @@ export const actionFullMsgsByChat =
 const actionFirstMsgByChat = (chatId) =>
     actionPromise(
         "firstMsg",
-        gql(
+        fetchGraphQL(
             `query firstMsg($q: String) {
       MessageFind (query: $q){
          _id
@@ -131,7 +132,7 @@ export const actionGetAllLastMsg = (chats) => async (dispatch, getState) => {
 export const actionMsgsCount = (chatId) =>
     actionPromise(
         "msgsCount",
-        gql(
+        fetchGraphQL(
             `query msgsCount($q: String) {
       MessageCount (query: $q)  
    }`,
@@ -144,7 +145,7 @@ export const actionMsgsCount = (chatId) =>
 export const actionGetMsgById = (msgId) =>
     actionPromise(
         "msgById",
-        gql(
+        fetchGraphQL(
             `query msgById($q: String) {
       MessageFindOne (query: $q){
          _id
@@ -192,7 +193,7 @@ export const actionGetMsgById = (msgId) =>
 export const actionUpdateMsg = (chatId, text, media, msgId) =>
     actionPromise(
         "updateMsg",
-        gql(
+        fetchGraphQL(
             `mutation updateMsg($msg: MessageInput) {
       MessageUpsert(message: $msg) {
          _id

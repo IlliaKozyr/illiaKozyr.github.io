@@ -2,6 +2,7 @@ import { actionFullLogout } from "../actions/authActions";
 import { actionOnChat, actionOnChatLeft } from "../actions/socketActions";
 import { store } from "../reducers/combineReducers";
 import { actionMsgOne } from "../reducers/chatReducers";
+import { api } from "../constants";
 import { backURL } from "../constants";
 import { io } from "socket.io-client"
 

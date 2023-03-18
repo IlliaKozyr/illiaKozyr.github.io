@@ -5,6 +5,7 @@ import { actionChatsClear } from "../reducers/chatReducers";
 import { actionPromise } from "../reducers/promiseReducer";
 import { actionAboutMe } from "../reducers/combineReducers";
 import { actionUploadFile } from "./mediaActions";
+import { fetchGraphQL } from "../constants";
 
 export const actionFullLogout = () => async (dispatch) => {
     history.push("/login");
@@ -15,7 +16,7 @@ export const actionFullLogout = () => async (dispatch) => {
 const actionLogin = (login, password) =>
     actionPromise(
         "login",
-        gql(
+        fetchGraphQL(
             `query log($login: String, $password: String) {
          login(login: $login, password: $password)
       }`,
@@ -37,7 +38,7 @@ export const actionFullLogin = (login, password) => async (dispatch) => {
 const actionRegister = (login, password, nick) =>
     actionPromise(
         "register",
-        gql(
+        fetchGraphQL(
             `mutation reg($user:UserInput) {
          UserUpsert(user:$user) {
          _id 
@@ -59,7 +60,7 @@ export const actionFullRegister =
 const actionUpdateUserAvatar = (userId, avatarId) =>
     actionPromise(
         "updateUserAv",
-        gql(
+        fetchGraphQL(
             `mutation updateUserAv($user:UserInput) {
          UserUpsert(user:$user) {
             _id   
@@ -77,7 +78,7 @@ const actionUpdateUserAvatar = (userId, avatarId) =>
 const actionUpdateUserLogin = (userId, newLogin, newNick) =>
     actionPromise(
         "updateUser",
-        gql(
+        fetchGraphQL(
             `mutation updateUser($user:UserInput) {
          UserUpsert(user:$user) {
             _id   
@@ -104,7 +105,7 @@ export const actionSetUserInfo =
 const actionChangePass = (_id, password) =>
     actionPromise(
         "register",
-        gql(
+        fetchGraphQL(
             `mutation reg($user:UserInput) {
          UserUpsert(user:$user) {
          _id 

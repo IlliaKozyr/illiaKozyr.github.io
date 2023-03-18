@@ -1,10 +1,11 @@
 import { gql } from '../helpers'
 import { actionPromise } from '../reducers/promiseReducer'
+import { fetchGraphQL } from '../constants'
 
 export const actionFindUsers = (text, skipCount = 0, limitCount = 20) =>
     actionPromise(
         'findUsers',
-        gql(
+        fetchGraphQL(
             `query findUsers($q: String) {
       UserFind (query: $q){
          _id
@@ -41,7 +42,7 @@ export const actionFindChatsByUser = (
 ) =>
     actionPromise(
         'findChatsByUser',
-        gql(
+        fetchGraphQL(
             `query findChatsByUser($q: String) {
       ChatFind (query: $q){
          _id
