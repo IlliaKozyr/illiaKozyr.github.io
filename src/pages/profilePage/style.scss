@@ -1,0 +1,56 @@
+.profileContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 100px;
+}
+
+.profileBlock {
+    display: flex;
+    height: 92.8vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileMain {
+    display: flex;
+    align-items: center;
+}
+
+.profileMain img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.profileMain {
+    display: flex;
+}
+
+.profileTitle {
+    padding-bottom: 40px;
+}
+
+
+.inputContainer input {
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    width: 40vh;
+}
+
+.inputContainer label {
+    margin-bottom: 5px;
+}
+
+.df {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    .changepasLink {
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+

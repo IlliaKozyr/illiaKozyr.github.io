@@ -15,12 +15,9 @@ function getUrl(obj) {
 
 export const UserAvatar = ({ profile, text = "", className = "small" }) => {
 
-    // useEffect(() => {}, [getUrl(profile)])
-
     return (
         <>
-            {console.log(getUrl(profile), "gjfsghfklsglk")}
-            <div style={{display: "flex", alignItems: 'center'}}>
+            <div className="changeAvatar">
                 <img className={className} src={getUrl(profile)} alt="profile avatar"/>
                 <p>{text}</p>
             </div>
@@ -36,7 +33,7 @@ export const CMyAvatar = connect((state) => ({
 export const ChatAvatar = ({ userChat, text = "", className = "small", _id }) => {
     return (
         <>
-            <div style={{display: "flex", alignItems: 'center'}}>
+            <div className="changeAvatar">
                 {userChat[_id]?.avatar?.url ? <img className={className} src={backURL + userChat[_id]?.avatar?.url} alt="chat avatar"/> : <div className="avatarStubChat"></div>}
                 
                 <p>{text}</p>

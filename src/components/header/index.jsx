@@ -9,7 +9,10 @@ export const Header = () => {
     return (
         <>
             <Link to="/main">
-                <h1 className="logoH1">FAKOGRAM</h1>
+                <h1 className="logoH1">
+                    <span className="logoSpan">FACO</span>
+                    <span className="logoSpan">GRAM</span>
+                </h1>
             </Link>
 
             <div id="nav-container">
@@ -31,12 +34,11 @@ export const Header = () => {
                                     Profile
                                 </Link>
                                 <Link className="nav" to="/aboutus">
-                                    About Us
+                                    About Project
                                 </Link>
                                 <CLogoutBtn />
                             </div>
                         </Offcanvas.Body>
-                        
                     </ul>
                 </div>
             </div>

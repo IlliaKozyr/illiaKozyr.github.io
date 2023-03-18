@@ -43,7 +43,7 @@ const Registration = ({ onReg }) => {
                         value={login}
                         valueAgain={passwordAgain}
                         onChange={(isValid) => {}}
-                        className="validator"
+                        style={{paddingBottom: "10px"}}
                         messages={{
                             minLength: "Login has more than 5 characters.",
                         }}
@@ -70,6 +70,7 @@ const Registration = ({ onReg }) => {
                         valueAgain={passwordAgain}
                         onChange={(isValid) => {}}
                         className="validator"
+                        style={{paddingBottom: "10px"}}
                         messages={{
                             minLength: "Login has more than 5 characters.",
                         }}
@@ -108,6 +109,7 @@ const Registration = ({ onReg }) => {
                         valueAgain={passwordAgain}
                         onChange={(isValid) => {}}
                         className="validator"
+                        style={{paddingBottom: "10px"}}
                     />
                 </div>
                 <div className="d-flex loginForm">

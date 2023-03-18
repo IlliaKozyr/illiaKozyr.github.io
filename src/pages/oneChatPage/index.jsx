@@ -10,6 +10,7 @@ import { AvatarStubHeader } from "../../components/avatars/AvatarStub";
 import { actionSendMsg } from "../../actions";
 import { useDropzone } from "react-dropzone";
 import leftArrow from "./images/leftArrow.png";
+import sandMsg from "./images/sandMsg.png";
 
 const ChatMsgs = ({
     chatMsgs = [],
@@ -207,23 +208,26 @@ const ChatMsgs = ({
                                             setText(e.target.value);
                                         }}
                                     />
+                                    <button
+                                        className="sandMsgBtn"
+                                        onClick={() => {
+                                            sendMsg(
+                                                getChat[_id]?._id,
+                                                text,
+                                                "media",
+                                                files,
+                                                "1"
+                                            );
+                                            setText("");
+                                            setFiles([]);
+                                        }}
+                                    >
+                                        <img
+                                            src={sandMsg}
+                                            alt="sand message button"
+                                        />
+                                    </button>
                                 </div>
-
-                                {/* <Button
-                                    onClick={() => {
-                                        sendMsg(
-                                            getChat[_id]?._id,
-                                            text,
-                                            "media",
-                                            files,
-                                            "1"
-                                        );
-                                        setText("");
-                                        setFiles([]);
-                                    }}
-                                >
-                                    Send a message
-                                </Button> */}
                             </div>
                         </div>
                     )}

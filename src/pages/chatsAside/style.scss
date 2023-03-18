@@ -7,6 +7,11 @@ p {
 .chatsContainer {
     background-color: white;
     overflow: auto;
+    height: 92.8vh;
+}
+
+.chatsContainer::-webkit-scrollbar {
+    display: none;
 }
 
 .newChatContainer {
