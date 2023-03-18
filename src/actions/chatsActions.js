@@ -3,12 +3,11 @@ import { actionPromise } from "../reducers/promiseReducer";
 import { actionChatList, actionChatOne } from "../reducers/chatReducers";
 import { actionGetAllLastMsg } from "./msgActions";
 import { actionUploadFile } from "./mediaActions";
-import { fetchGraphQL } from "../constants";
 
 const actionUpdateChat = (title, members, chatId) =>
     actionPromise(
         "updateChat",
-        fetchGraphQL(
+        gql(
             `mutation updateChat($chat:ChatInput) {
       ChatUpsert(chat:$chat) {
          _id
@@ -46,7 +45,7 @@ const actionUpdateChat = (title, members, chatId) =>
 const actionUpdateChatAvatar = (mediaId, chatId) =>
     actionPromise(
         "uploadFile",
-        fetchGraphQL(
+        gql(
             `mutation uploadFile($media: MediaInput) {  
         MediaUpsert(media: $media) {
             _id
@@ -76,7 +75,7 @@ export const actionSetChatInfo =
 export const actionGetChatsByUser = (userId, skipCount = 0, limitCount = 50) =>
     actionPromise(
         "userChats",
-        fetchGraphQL(
+        gql(
             `query userChats($q: String) {
       ChatFind (query: $q){
          _id
@@ -139,7 +138,7 @@ export const actionFullChatList =
 export const actionGetChatById = (chatId) =>
     actionPromise(
         "chatById",
-        fetchGraphQL(
+        gql(
             `query chatById($q: String) {
       ChatFindOne (query: $q){
          _id
@@ -181,7 +180,7 @@ export const actionGetChatById = (chatId) =>
 export const actionChatsCount = (userId) =>
     actionPromise(
         "chatsCount",
-        fetchGraphQL(
+        gql(
             `query chatsCount($q: String) {
       ChatCount (query: $q)  
    }`,
