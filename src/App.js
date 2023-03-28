@@ -35,6 +35,7 @@ const AuthSwitch = ({ token }) => {
                 <Route path="/login" component={() => <></>} />
                 <Route path="/registration" component={() => <></>} />
                 <Header />
+                <Redirect to={token === undefined ? "/login" : "/main"} />
             </Switch>
 
             <div className="mainContainer">
@@ -42,18 +43,20 @@ const AuthSwitch = ({ token }) => {
                 <Route path="/main/:_id" component={CChatMsgs} />
             </div>
 
-            <Route path="/login" component={CLogin} />
-            <Route path="/registration" component={CRegistration} />
-            <Route path="/newchat" component={CNewChatPage} />
-            <Route path="/changepas" component={CChangePass} />
-            <Route path="/changesdone" component={ChangesDone} />
-            <Route path="/changesdonechats" component={ChangesDoneForChats} />
-            <Route path="/chatediting/:_id" component={CChatEditing} />
-
-            <Route path="/aboutus" component={AboutUs} />
-            <Route path="/profile" component={CProfilePage} />
-
-            <Redirect to={token === undefined ? "/login" : "/main"} />
+            <Switch>
+                <Route path="/login" component={CLogin} />
+                <Route path="/registration" component={CRegistration} />
+                <Route path="/newchat" component={CNewChatPage} />
+                <Route path="/changepas" component={CChangePass} />
+                <Route path="/changesdone" component={ChangesDone} />
+                <Route
+                    path="/changesdonechats"
+                    component={ChangesDoneForChats}
+                />
+                <Route path="/chatediting/:_id" component={CChatEditing} />
+                <Route path="/aboutus" component={AboutUs} />
+                <Route path="/profile" component={CProfilePage} />
+            </Switch>
         </>
     );
 };
@@ -67,9 +70,7 @@ function App() {
         <>
             <Router history={history}>
                 <Provider store={store}>
-                    {/* <div className="main"> */}
                     <CAuthSwitch />
-                    {/* </div> */}
                 </Provider>
             </Router>
         </>
